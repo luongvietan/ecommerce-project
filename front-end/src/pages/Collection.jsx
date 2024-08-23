@@ -35,23 +35,23 @@ const Collection = () => {
           <p className="mb-3 text-sm font-medium">LEAGUES</p>
           <div className="flex flex-col gap-2 text-sm font-light text-gray-700">
             <p className="flex gap-2">
-              <input className="w-3" type="checkbox" value={"Men"} />
+              <input className="w-3" type="checkbox" value={"Premier League"} />
               Premier League
             </p>
             <p className="flex gap-2">
-              <input className="w-3" type="checkbox" value={"Women"} />
+              <input className="w-3" type="checkbox" value={"Serie A"} />
               Serie A
             </p>
             <p className="flex gap-2">
-              <input className="w-3" type="checkbox" value={"Kids"} />
+              <input className="w-3" type="checkbox" value={"La Liga"} />
               La Liga
             </p>
             <p className="flex gap-2">
-              <input className="w-3" type="checkbox" value={"Kids"} />
+              <input className="w-3" type="checkbox" value={"Bundesliga"} />
               Bundesliga
             </p>
             <p className="flex gap-2">
-              <input className="w-3" type="checkbox" value={"Kids"} />
+              <input className="w-3" type="checkbox" value={"Ligue 1"} />
               Ligue 1
             </p>
           </div>
@@ -65,23 +65,23 @@ const Collection = () => {
           <p className="mb-3 text-sm font-medium">NATIONAL</p>
           <div className="flex flex-col gap-2 text-sm font-light text-gray-700">
             <p className="flex gap-2">
-              <input className="w-3" type="checkbox" value={"Topwear"} />
+              <input className="w-3" type="checkbox" value={"England"} />
               England
             </p>
             <p className="flex gap-2">
-              <input className="w-3" type="checkbox" value={"Bottomwear"} />
+              <input className="w-3" type="checkbox" value={"Italy"} />
               Italy
             </p>
             <p className="flex gap-2">
-              <input className="w-3" type="checkbox" value={"Winterwear"} />
+              <input className="w-3" type="checkbox" value={"Spain"} />
               Spain
             </p>
             <p className="flex gap-2">
-              <input className="w-3" type="checkbox" value={"Winterwear"} />
+              <input className="w-3" type="checkbox" value={"Germany"} />
               Germany
             </p>
             <p className="flex gap-2">
-              <input className="w-3" type="checkbox" value={"Winterwear"} />
+              <input className="w-3" type="checkbox" value={"France"} />
               France
             </p>
           </div>
