@@ -8,9 +8,59 @@ const Collection = () => {
   const { products } = useContext(ShopContext);
   const [showFilter, setShowFilter] = useState(false);
   const [filterProducts, setFilterProducts] = useState([]);
+  const [category, setCategory] = useState([]);
+  const [subCategory, setSubCategory] = useState([]);
+
+  const toggleCategory = (e) => {
+    if (category.includes(e.target.value)) {
+      setCategory((previous) =>
+        previous.filter((item) => item !== e.target.value)
+      );
+    } else {
+      setCategory((previous) => [...previous, e.target.value]);
+    }
+  };
+  const toggleSubCategory = (e) => {
+    if (subCategory.includes(e.target.value)) {
+      setSubCategory((previous) =>
+        previous.filter((item) => item !== e.target.value)
+      );
+    } else {
+      setSubCategory((previous) => [...previous, e.target.value]);
+    }
+  };
+
+  const applyFilter = () => {
+    let productCopy = products.slice();
+
+    if (category.length > 0) {
+      productCopy = productCopy.filter((item) =>
+        category.includes(item.category)
+      );
+    }
+    if (subCategory.length > 0) {
+      productCopy = productCopy.filter((item) =>
+        subCategory.includes(item.subCategory)
+      );
+    }
+    setFilterProducts(productCopy);
+  };
+
+  // useEffect(() => {
+  //   setFilterProducts(products);
+  // }, []);
+
   useEffect(() => {
-    setFilterProducts(products);
-  }, []);
+    applyFilter();
+  }, [category, subCategory]);
+
+  // useEffect(() => {
+  //   console.log(category);
+  // }, [category]);
+  // useEffect(() => {
+  //   console.log(subCategory);
+  // }, [subCategory]);
+
   return (
     <div className="flex flex-col sm:flex-row gap-1 sm:gap-10 pt-10 border-t">
       {/* Filter options */}
@@ -35,23 +85,48 @@ const Collection = () => {
           <p className="mb-3 text-sm font-medium">LEAGUES</p>
           <div className="flex flex-col gap-2 text-sm font-light text-gray-700">
             <p className="flex gap-2">
-              <input className="w-3" type="checkbox" value={"Premier League"} />
+              <input
+                className="w-3"
+                type="checkbox"
+                value={"Premier League"}
+                onChange={toggleCategory}
+              />
               Premier League
             </p>
             <p className="flex gap-2">
-              <input className="w-3" type="checkbox" value={"Serie A"} />
+              <input
+                className="w-3"
+                type="checkbox"
+                value={"Serie A"}
+                onChange={toggleCategory}
+              />
               Serie A
             </p>
             <p className="flex gap-2">
-              <input className="w-3" type="checkbox" value={"La Liga"} />
+              <input
+                className="w-3"
+                type="checkbox"
+                value={"La Liga"}
+                onChange={toggleCategory}
+              />
               La Liga
             </p>
             <p className="flex gap-2">
-              <input className="w-3" type="checkbox" value={"Bundesliga"} />
+              <input
+                className="w-3"
+                type="checkbox"
+                value={"Bundesliga"}
+                onChange={toggleCategory}
+              />
               Bundesliga
             </p>
             <p className="flex gap-2">
-              <input className="w-3" type="checkbox" value={"Ligue 1"} />
+              <input
+                className="w-3"
+                type="checkbox"
+                value={"Ligue 1"}
+                onChange={toggleCategory}
+              />
               Ligue 1
             </p>
           </div>
@@ -62,27 +137,34 @@ const Collection = () => {
             showFilter ? "" : "hidden"
           } sm:block`}
         >
-          <p className="mb-3 text-sm font-medium">NATIONAL</p>
+          <p className="mb-3 text-sm font-medium">TYPE</p>
           <div className="flex flex-col gap-2 text-sm font-light text-gray-700">
             <p className="flex gap-2">
-              <input className="w-3" type="checkbox" value={"England"} />
-              England
+              <input
+                className="w-3"
+                type="checkbox"
+                value={"Men"}
+                onChange={toggleSubCategory}
+              />
+              Men
             </p>
             <p className="flex gap-2">
-              <input className="w-3" type="checkbox" value={"Italy"} />
-              Italy
+              <input
+                className="w-3"
+                type="checkbox"
+                value={"Women"}
+                onChange={toggleSubCategory}
+              />
+              Women
             </p>
             <p className="flex gap-2">
-              <input className="w-3" type="checkbox" value={"Spain"} />
-              Spain
-            </p>
-            <p className="flex gap-2">
-              <input className="w-3" type="checkbox" value={"Germany"} />
-              Germany
-            </p>
-            <p className="flex gap-2">
-              <input className="w-3" type="checkbox" value={"France"} />
-              France
+              <input
+                className="w-3"
+                type="checkbox"
+                value={"Kids"}
+                onChange={toggleSubCategory}
+              />
+              Kids
             </p>
           </div>
         </div>
