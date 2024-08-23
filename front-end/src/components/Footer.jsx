@@ -9,10 +9,10 @@ const Footer = () => {
         <div>
           <img src={assets.logo} className="mb-5 w-32" alt="logo" />
           <p className="w-full md:w-2/3 text-gray-600">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. At,
-            voluptates! Nulla eveniet nisi harum? Sequi dolor placeat debitis
-            repudiandae eaque, obcaecati voluptates illum magnam sed suscipit
-            maiores voluptatem nam. Velit!
+            Welcome to Fuble, your ultimate destination for premium soccer gear.
+            We offer a wide range of products designed for both professional and
+            amateur players, ensuring you have everything you need to excel on
+            the field. Shop with Fuble and elevate your game to the next level!
           </p>
         </div>
         <div>
