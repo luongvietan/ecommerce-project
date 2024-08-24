@@ -6,6 +6,8 @@ import RelatedProducts from "../components/RelatedProducts";
 
 const Product = () => {
   const { productId } = useParams();
+  // const { id } = useParams();
+  // const productId = id;
   const { products, currency, addToCart } = useContext(ShopContext);
   const [productData, setProductData] = useState(false);
   const [image, setImage] = useState("");
@@ -23,6 +25,9 @@ const Product = () => {
   useEffect(() => {
     fetchProductData();
   }, [productId, products]);
+
+  console.log(`productData: `, productData);
+
   return productData ? (
     <div className="border-t-2 pt-10 transition-opacity ease-in duration-500 opacity-100">
       {/* Products data */}
@@ -120,7 +125,7 @@ const Product = () => {
       />
     </div>
   ) : (
-    <div className="opacity-0"></div>
+    <div className="">ERROR</div>
   );
 };
 
