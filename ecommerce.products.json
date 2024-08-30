@@ -1,0 +1,695 @@
+[{
+  "_id": "aaaaa",
+  "name": "Man United Home 2024 Jersey",
+  "description": "English football club based in Old Trafford, Greater Manchester. Known as the Red Devils, they are one of the most successful clubs in English football history.",
+  "price": 100,
+  "image": "../admin/src/assets/p_img1.png",
+  "category": "Premier League",
+  "subCategory": "Men",
+  "sizes": [
+    "S",
+    "M",
+    "L"
+  ],
+  "date": {
+    "$numberLong": "1716634345448"
+  },
+  "bestseller": true,
+  "pid": "aaaaa"
+},
+{
+  "_id": "aaaab",
+  "name": "Barcelona Més Que Un Club Shirt",
+  "description": "Spanish professional football club based in Barcelona, Catalonia. Known for their distinctive blue and red stripes and their 'tiki-taka' style of play.",
+  "price": 200,
+  "image": [
+    "p_img2_1",
+    "p_img2_2",
+    "p_img2_3",
+    "p_img2_4"
+  ],
+  "category": "La Liga",
+  "subCategory": "Men",
+  "sizes": [
+    "M",
+    "L",
+    "XL"
+  ],
+  "date": {
+    "$numberLong": "1716621345448"
+  },
+  "bestseller": true,
+  "pid": "aaaab"
+},
+{
+  "_id": "aaaac",
+  "name": "Bayern Munich Home 2024 Jersey",
+  "description": "German professional sports club based in Munich, Bavaria. They are the most successful club in German football history.",
+  "price": 220,
+  "image": [
+    "p_img3"
+  ],
+  "category": "Bundesliga",
+  "subCategory": "Men",
+  "sizes": [
+    "S",
+    "L",
+    "XL"
+  ],
+  "date": {
+    "$numberLong": "1716234545448"
+  },
+  "bestseller": true,
+  "pid": "aaaac"
+},
+{
+  "_id": "aaaad",
+  "name": "Juventus Home 2024 Jersey",
+  "description": "Italian professional football club based in Turin, Piedmont. Nicknamed 'The Old Lady', they have won more Serie A and Coppa Italia titles than any other Italian team.",
+  "price": 110,
+  "image": [
+    "p_img4"
+  ],
+  "category": "Serie A",
+  "subCategory": "Men",
+  "sizes": [
+    "S",
+    "M",
+    "XXL"
+  ],
+  "date": {
+    "$numberLong": "1716621345448"
+  },
+  "bestseller": true,
+  "pid": "aaaad"
+},
+{
+  "_id": "aaaae",
+  "name": "PSG Liberté Blue Shirt",
+  "description": "French professional football club based in Paris. Known for their recent dominance in French football and ambitious signings.",
+  "price": 130,
+  "image": [
+    "p_img5"
+  ],
+  "category": "Ligue 1",
+  "subCategory": "Men",
+  "sizes": [
+    "M",
+    "L",
+    "XL"
+  ],
+  "date": {
+    "$numberLong": "1716622345448"
+  },
+  "bestseller": true,
+  "pid": "aaaae"
+},
+{
+  "_id": "aaaaf",
+  "name": "Liverpool Baltic Red Jersey",
+  "description": "English professional football club based in Liverpool. One of the most popular and successful clubs in the world with a rich history.",
+  "price": 140,
+  "image": [
+    "p_img6"
+  ],
+  "category": "Premier League",
+  "subCategory": "Men",
+  "sizes": [
+    "S",
+    "L",
+    "XL"
+  ],
+  "date": {
+    "$numberLong": "1716623423448"
+  },
+  "bestseller": true,
+  "pid": "aaaaf"
+},
+{
+  "_id": "aaaag",
+  "name": "Real Madrid Home 2025 Jersey",
+  "description": "Spanish professional football club based in Madrid. One of the most widely supported teams in the world and has won numerous domestic and international titles.",
+  "price": 190,
+  "image": [
+    "p_img7"
+  ],
+  "category": "La Liga",
+  "subCategory": "Men",
+  "sizes": [
+    "S",
+    "L",
+    "XL"
+  ],
+  "date": {
+    "$numberLong": "1716621542448"
+  },
+  "bestseller": false,
+  "pid": "aaaag"
+},
+{
+  "_id": "aaaah",
+  "name": "AC Milan Home 2024 Jersey",
+  "description": "Italian professional football club based in Milan, Lombardy. One of the most successful clubs in Italy with a strong European pedigree.",
+  "price": 140,
+  "image": [
+    "p_img8"
+  ],
+  "category": "Serie A",
+  "subCategory": "Men",
+  "sizes": [
+    "S",
+    "M",
+    "L",
+    "XL"
+  ],
+  "date": {
+    "$numberLong": "1716622345448"
+  },
+  "bestseller": false,
+  "pid": "aaaah"
+},
+{
+  "_id": "aaaai",
+  "name": "Dortmund Home 2024 Jersey",
+  "description": "German professional sports club based in Dortmund, North Rhine-Westphalia. Known for their passionate fans and yellow and black colors.",
+  "price": 100,
+  "image": [
+    "p_img9"
+  ],
+  "category": "Bundesliga",
+  "subCategory": "Men",
+  "sizes": [
+    "M",
+    "L",
+    "XL"
+  ],
+  "date": {
+    "$numberLong": "1716621235448"
+  },
+  "bestseller": false,
+  "pid": "aaaai"
+},
+{
+  "_id": "aaaaj",
+  "name": "Arsenal Home 2024 Jersey",
+  "description": "English professional football club based in London. Known as The Gunners, they have had significant success in domestic and England competitions.",
+  "price": 110,
+  "image": [
+    "p_img10"
+  ],
+  "category": "Premier League",
+  "subCategory": "Men",
+  "sizes": [
+    "S",
+    "L",
+    "XL"
+  ],
+  "date": {
+    "$numberLong": "1716622235448"
+  },
+  "bestseller": false,
+  "pid": "aaaaj"
+},
+{
+  "_id": "aaaak",
+  "name": "Atletico Madrid",
+  "description": "Spanish professional football club based in Madrid. Known for their strong defensive style and recent rise to challenge the dominance of Real Madrid and Barcelona.",
+  "price": 120,
+  "image": [
+    "p_img11"
+  ],
+  "category": "La Liga",
+  "subCategory": "Men",
+  "sizes": [
+    "S",
+    "M",
+    "L"
+  ],
+  "date": {
+    "$numberLong": "1716623345448"
+  },
+  "bestseller": false,
+  "pid": "aaaak"
+},
+{
+  "_id": "aaaal",
+  "name": "Man United Home 2025 Jersey",
+  "description": "English football club based in Old Trafford, Greater Manchester. Known as the Red Devils, they are one of the most successful clubs in English football history.",
+  "price": 150,
+  "image": [
+    "p_img12"
+  ],
+  "category": "Premier League",
+  "subCategory": "Men",
+  "sizes": [
+    "S",
+    "M",
+    "L",
+    "XL"
+  ],
+  "date": {
+    "$numberLong": "1716624445448"
+  },
+  "bestseller": false,
+  "pid": "aaaal"
+},
+{
+  "_id": "aaaam",
+  "name": "Arsenal 2024 Away Jersey",
+  "description": "English professional football club based in Islington, London. One of the most successful teams in English football, known for their attractive style of play.",
+  "price": 130,
+  "image": [
+    "p_img13"
+  ],
+  "category": "Premier League",
+  "subCategory": "Men",
+  "sizes": [
+    "S",
+    "M",
+    "L",
+    "XL"
+  ],
+  "date": {
+    "$numberLong": "1716625545448"
+  },
+  "bestseller": false,
+  "pid": "aaaam"
+},
+{
+  "_id": "aaaan",
+  "name": "Dortmund 2024 Away Jersey",
+  "description": "German professional sports club based in Dortmund, North Rhine-Westphalia. Known for their passionate fans and yellow and black colors.",
+  "price": 160,
+  "image": [
+    "p_img14"
+  ],
+  "category": "Bundesliga",
+  "subCategory": "Men",
+  "sizes": [
+    "S",
+    "M",
+    "L",
+    "XL"
+  ],
+  "date": {
+    "$numberLong": "1716626645448"
+  },
+  "bestseller": false,
+  "pid": "aaaan"
+},
+{
+  "_id": "aaaao",
+  "name": "Italy 2024 Home Jersey",
+  "description": "Italian national football club. Champion of Europe 2020",
+  "price": 140,
+  "image": [
+    "p_img15"
+  ],
+  "category": "National",
+  "subCategory": "Men",
+  "sizes": [
+    "S",
+    "M",
+    "L",
+    "XL"
+  ],
+  "date": {
+    "$numberLong": "1716627745448"
+  },
+  "bestseller": false,
+  "pid": "aaaao"
+},
+{
+  "_id": "aaaap",
+  "name": "Super Bolla England Shirt 7",
+  "description": "English national football club.",
+  "price": 170,
+  "image": [
+    "p_img16"
+  ],
+  "category": "National",
+  "subCategory": "Men",
+  "sizes": [
+    "S",
+    "M",
+    "L",
+    "XL"
+  ],
+  "date": {
+    "$numberLong": "1716628845448"
+  },
+  "bestseller": false,
+  "pid": "aaaap"
+},
+{
+  "_id": "aaaaq",
+  "name": "Super Bolla França Shirt 10",
+  "description": "France national football club.",
+  "price": 150,
+  "image": [
+    "p_img17"
+  ],
+  "category": "National",
+  "subCategory": "Men",
+  "sizes": [
+    "S",
+    "M",
+    "L",
+    "XL"
+  ],
+  "date": {
+    "$numberLong": "1716629945448"
+  },
+  "bestseller": false,
+  "pid": "aaaaq"
+},
+{
+  "_id": "aaaar",
+  "name": "Germany 2024 Home Jersey",
+  "description": "Germany national football club. Champion of Europe 2020",
+  "price": 180,
+  "image": [
+    "p_img18"
+  ],
+  "category": "National",
+  "subCategory": "Men",
+  "sizes": [
+    "S",
+    "M",
+    "L",
+    "XL"
+  ],
+  "date": {
+    "$numberLong": "1716631045448"
+  },
+  "bestseller": false,
+  "pid": "aaaar"
+},
+{
+  "_id": "aaaas",
+  "name": "AS Roma 2024 Home Jersey",
+  "description": "Italian professional football club based in Rome. One of the most supported teams in Italy, known for their passionate fans.",
+  "price": 160,
+  "image": [
+    "p_img19"
+  ],
+  "category": "Serie A",
+  "subCategory": "Men",
+  "sizes": [
+    "S",
+    "M",
+    "L",
+    "XL"
+  ],
+  "date": {
+    "$numberLong": "1716632145448"
+  },
+  "bestseller": false,
+  "pid": "aaaas"
+},
+{
+  "_id": "aaaat",
+  "name": "Belgium Away 2023 Women Jersey",
+  "description": "Adidas Belgium Away 2023 Women Jersey",
+  "price": 190,
+  "image": [
+    "p_img20"
+  ],
+  "category": "National",
+  "subCategory": "Women",
+  "sizes": [
+    "S",
+    "M",
+    "L",
+    "XL"
+  ],
+  "date": {
+    "$numberLong": "1716633245448"
+  },
+  "bestseller": false,
+  "pid": "aaaat"
+},
+{
+  "_id": "aaaau",
+  "name": "Spain 2024 Away Jersey",
+  "description": "Adidas Spain 2024 Away Jersey.",
+  "price": 170,
+  "image": [
+    "p_img21"
+  ],
+  "category": "National",
+  "subCategory": "Men",
+  "sizes": [
+    "S",
+    "M",
+    "L",
+    "XL"
+  ],
+  "date": {
+    "$numberLong": "1716634345448"
+  },
+  "bestseller": false,
+  "pid": "aaaau"
+},
+{
+  "_id": "aaaav",
+  "name": "Valencia 2024 Home Jersey",
+  "description": "Spanish professional football club based in Valencia. Known for their bat logo and history of producing talented players.",
+  "price": 200,
+  "image": [
+    "p_img22"
+  ],
+  "category": "La Liga",
+  "subCategory": "Men",
+  "sizes": [
+    "S",
+    "M",
+    "L",
+    "XL"
+  ],
+  "date": {
+    "$numberLong": "1716635445448"
+  },
+  "bestseller": false,
+  "pid": "aaaav"
+},
+{
+  "_id": "aaaaw",
+  "name": "Bayern 2024 Away Jersey",
+  "description": "German professional sports club based in Munich, Bavaria. They are the most successful club in German football history.",
+  "price": 180,
+  "image": [
+    "p_img23"
+  ],
+  "category": "Bundesliga",
+  "subCategory": "Men",
+  "sizes": [
+    "S",
+    "M",
+    "L",
+    "XL"
+  ],
+  "date": {
+    "$numberLong": "1716636545448"
+  },
+  "bestseller": false,
+  "pid": "aaaaw"
+},
+{
+  "_id": "aaaax",
+  "name": "Bayern 2024 Third Jersey",
+  "description": "German professional sports club based in Munich, Bavaria. They are the most successful club in German football history.",
+  "price": 210,
+  "image": [
+    "p_img24"
+  ],
+  "category": "Bundesliga",
+  "subCategory": "Men",
+  "sizes": [
+    "S",
+    "M",
+    "L",
+    "XL"
+  ],
+  "date": {
+    "$numberLong": "1716637645448"
+  },
+  "bestseller": false,
+  "pid": "aaaax"
+},
+{
+  "_id": "aaaay",
+  "name": "Marseille 2024 Home Jersey",
+  "description": "French professional football club based in Marseille. The most successful French club in European competitions.",
+  "price": 190,
+  "image": [
+    "p_img25"
+  ],
+  "category": "Ligue 1",
+  "subCategory": "Men",
+  "sizes": [
+    "S",
+    "M",
+    "L",
+    "XL"
+  ],
+  "date": {
+    "$numberLong": "1716638745448"
+  },
+  "bestseller": false,
+  "pid": "aaaay"
+},
+{
+  "_id": "aaaaz",
+  "name": "Marseille 2024 Away Jersey",
+  "description": "French professional football club based in Marseille. The most successful French club in European competitions.",
+  "price": 220,
+  "image": [
+    "p_img26"
+  ],
+  "category": "Ligue 1",
+  "subCategory": "Men",
+  "sizes": [
+    "S",
+    "M",
+    "L",
+    "XL"
+  ],
+  "date": {
+    "$numberLong": "1716639845448"
+  },
+  "bestseller": false,
+  "pid": "aaaaz"
+},
+{
+  "_id": "aaaba",
+  "name": "Man City 2024 Home Jersey",
+  "description": "English professional football club based in Manchester. Known as The Citizens, they have enjoyed recent success under the management of Pep Guardiola.",
+  "price": 200,
+  "image": [
+    "p_img27"
+  ],
+  "category": "Premier League",
+  "subCategory": "Men",
+  "sizes": [
+    "S",
+    "M",
+    "L",
+    "XL"
+  ],
+  "date": {
+    "$numberLong": "1716640945448"
+  },
+  "bestseller": false,
+  "pid": "aaaba"
+},
+{
+  "_id": "aaabb",
+  "name": "Man City 2024 Away Jersey",
+  "description": "English professional football club based in Manchester. Known as The Citizens, they have enjoyed recent success under the management of Pep Guardiola.",
+  "price": 230,
+  "image": [
+    "p_img28"
+  ],
+  "category": "Premier League",
+  "subCategory": "Men",
+  "sizes": [
+    "S",
+    "M",
+    "L",
+    "XL"
+  ],
+  "date": {
+    "$numberLong": "1716642045448"
+  },
+  "bestseller": false,
+  "pid": "aaabb"
+},
+{
+  "_id": "aaabc",
+  "name": "Man City 2024 Home Women Jersey",
+  "description": "English professional football club based in Manchester. Known as The Citizens, they have enjoyed recent success under the management of Pep Guardiola.",
+  "price": 230,
+  "image": [
+    "p_img29"
+  ],
+  "category": "Premier League",
+  "subCategory": "Women",
+  "sizes": [
+    "S",
+    "M",
+    "L",
+    "XL"
+  ],
+  "date": {
+    "$numberLong": "1716642045448"
+  },
+  "bestseller": false,
+  "pid": "aaabc"
+},
+{
+  "_id": "aaabd",
+  "name": "Liverpool Anfield Teens Shirt",
+  "description": "English professional football club based in Liverpool. One of the most popular and successful clubs in the world with a rich history.",
+  "price": 230,
+  "image": [
+    "p_img30"
+  ],
+  "category": "Premier League",
+  "subCategory": "Kids",
+  "sizes": [
+    "S",
+    "M",
+    "L",
+    "XL"
+  ],
+  "date": {
+    "$numberLong": "1716642045448"
+  },
+  "bestseller": false,
+  "pid": "aaabd"
+},
+{
+  "_id": "aaabe",
+  "name": "Marseille 2024 Home Women Jersey",
+  "description": "French professional football club based in Marseille. The most successful French club in European competitions.",
+  "price": 230,
+  "image": [
+    "p_img31"
+  ],
+  "category": "Ligue 1",
+  "subCategory": "Women",
+  "sizes": [
+    "S",
+    "M",
+    "L",
+    "XL"
+  ],
+  "date": {
+    "$numberLong": "1716642045448"
+  },
+  "bestseller": false,
+  "pid": "aaabe"
+},
+{
+  "_id": "aaabf",
+  "name": "Manchester City Blue Juvenile Jacket",
+  "description": "English professional football club based in Manchester. Known as The Citizens, they have enjoyed recent success under the management of Pep Guardiola.",
+  "price": 230,
+  "image": [
+    "p_img32"
+  ],
+  "category": "Premier League",
+  "subCategory": "Kids",
+  "sizes": [
+    "S",
+    "M",
+    "L",
+    "XL"
+  ],
+  "date": {
+    "$numberLong": "1716642045448"
+  },
+  "bestseller": false,
+  "pid": "aaabf"
+}]
