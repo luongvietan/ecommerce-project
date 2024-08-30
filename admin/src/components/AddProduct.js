@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import api from "../api";
 
 const AddProduct = ({ onProductAdded }) => {
-  const [PId, setPId] = useState("");
+  const [pid, setPid] = useState("");
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
@@ -11,45 +11,53 @@ const AddProduct = ({ onProductAdded }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const newProduct = { name, price, description };
-    await api.post("/products", newProduct); // Gọi API để thêm sản phẩm
-    setPId("");
+    const newProduct = {
+      pid: pid,
+      name: name,
+      price: price,
+      description: description,
+      category: category,
+      subCategory: subCategory,
+    };
+    const response = await api.post("/products", newProduct);
+    setPid("");
     setName("");
     setDescription("");
     setPrice("");
     setCategory("");
     setSubCategory("");
-    onProductAdded(); // Gọi hàm để cập nhật danh sách sản phẩm
+    onProductAdded();
   };
 
   return (
     <form onSubmit={handleSubmit} className="mb-4 p-4 border rounded shadow-md">
-      <h2 className="text-xl font-bold mb-2">Thêm sản phẩm mới</h2>
+      <h2 className="text-xl font-bold mb-2">Add New Product</h2>
+
       <input
         type="text"
-        placeholder="ID"
-        value={PId}
-        onChange={(e) => setPId(e.target.value)}
-        required
-        className="border p-2 mb-2 w-full"
-      />
-      <input
-        type="text"
-        placeholder="Tên sản phẩm"
+        placeholder="Product Name"
         value={name}
         onChange={(e) => setName(e.target.value)}
         required
         className="border p-2 mb-2 w-full"
       />
+      <input
+        type="text"
+        placeholder="Product ID"
+        value={pid}
+        onChange={(e) => setPid(e.target.value)}
+        required
+        className="border p-2 mb-2 w-full"
+      />
       <textarea
-        placeholder="Mô tả sản phẩm"
+        placeholder="Product Description"
         value={description}
         onChange={(e) => setDescription(e.target.value)}
         className="border p-2 mb-2 w-full"
       />
       <input
         type="number"
-        placeholder="Giá sản phẩm"
+        placeholder="Product Price"
         value={price}
         onChange={(e) => setPrice(e.target.value)}
         required
@@ -71,7 +79,7 @@ const AddProduct = ({ onProductAdded }) => {
         type="submit"
         className="bg-blue-500 text-white p-2 rounded hover:bg-blue-600"
       >
-        Thêm sản phẩm
+        Add Product
       </button>
     </form>
   );

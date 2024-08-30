@@ -5,6 +5,7 @@ const mongoose = require("mongoose");
 const app = express();
 app.use(cors());
 app.use(express.json());
+app.use(express.static("statics")); // Thêm dòng này để truy cập thư mục tĩnh
 
 mongoose
   .connect("mongodb://localhost:27017/ecommerce")
