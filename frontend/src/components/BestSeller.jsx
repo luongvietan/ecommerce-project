@@ -8,7 +8,6 @@ const BestSeller = () => {
   const [bestSeller, setBestSeller] = useState([]);
 
   // Kiểm tra kiểu dữ liệu của products
-  console.log(`products: ${JSON.stringify(products, null, 2).slice(0, 2)}`);
 
   useEffect(() => {
     if (Array.isArray(products)) {
@@ -33,7 +32,7 @@ const BestSeller = () => {
         {bestSeller.map((item, index) => (
           <ProductItem
             key={index}
-            id={item._id}
+            pid={item.pid}
             name={item.name}
             image={item.image}
             price={item.price}

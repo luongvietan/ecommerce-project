@@ -15,7 +15,6 @@ const LatestCollection = () => {
       console.error("products is not an array");
     }
   }, [products]);
-
   return (
     <div className="my-10">
       <div className="text-center py-8 text-3xl">
@@ -35,7 +34,7 @@ const LatestCollection = () => {
             ) => (
               <ProductItem
                 key={index}
-                id={item._id}
+                pid={item.pid}
                 image={item.image}
                 name={item.name}
                 price={item.price}
