@@ -1,25 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import ProductList from "./components/ProductList";
+import AddProduct from "./components/AddProduct";
 
-function App() {
+const App = () => {
+  const [refresh, setRefresh] = useState(false);
+
+  const handleProductAdded = () => {
+    setRefresh((prev) => !prev); // Đảo ngược giá trị để trigger useEffect trong ProductList
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="max-w-4xl mx-auto p-4">
+      <h1 className="text-3xl font-bold mb-4">Quản lý sản phẩm</h1>
+      <AddProduct onProductAdded={handleProductAdded} />
+      <ProductList refresh={refresh} />
     </div>
   );
-}
+};
 
 export default App;
