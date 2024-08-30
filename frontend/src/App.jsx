@@ -19,7 +19,7 @@ import ProductList from "./components/ProductList";
 const App = () => {
   return (
     <div className="px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]">
-      <ProductList />
+      {/* <ProductList /> */}
       <ToastContainer />
       <Navbar />
       <SearchBar />

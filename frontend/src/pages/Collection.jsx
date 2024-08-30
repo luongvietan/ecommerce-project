@@ -30,9 +30,8 @@ const Collection = () => {
       setSubCategory((previous) => [...previous, e.target.value]);
     }
   };
-
   const applyFilter = () => {
-    let productCopy = products.slice();
+    let productCopy = [...products]; // Sử dụng mảng thay vì chuỗi
 
     if (showSearch && search) {
       productCopy = productCopy.filter((item) =>
@@ -50,11 +49,10 @@ const Collection = () => {
         subCategory.includes(item.subCategory)
       );
     }
-    setFilterProducts(productCopy);
+    setFilterProducts(productCopy); // Đảm bảo filterProducts là mảng
   };
-
   const sortProduct = () => {
-    let filteredProductCopy = filterProducts.slice();
+    let filteredProductCopy = JSON.stringify(filterProducts, null, 2).slice();
     switch (sortType) {
       case "low-high":
         setFilterProducts(
@@ -90,7 +88,6 @@ const Collection = () => {
   // useEffect(() => {
   //   console.log(subCategory);
   // }, [subCategory]);
-
   return (
     <div className="flex flex-col sm:flex-row gap-1 sm:gap-10 pt-10 border-t">
       {/* Filter options */}
@@ -215,11 +212,14 @@ const Collection = () => {
         </div>
         {/* Map products */}
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 gap-y-6">
+          {console.log(
+            `filterProducts : ${JSON.stringify(filterProducts[0], null, 2)}`
+          )}{" "}
           {filterProducts.map((item, index) => (
             <ProductItem
               key={index}
               name={item.name}
-              id={item._id}
+              id={item.pid}
               price={item.price}
               image={item.image}
             />

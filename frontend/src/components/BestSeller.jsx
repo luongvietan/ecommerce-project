@@ -6,10 +6,20 @@ import ProductItem from "./ProductItem";
 const BestSeller = () => {
   const { products } = useContext(ShopContext);
   const [bestSeller, setBestSeller] = useState([]);
+
+  // Kiểm tra kiểu dữ liệu của products
+  console.log(`products: ${JSON.stringify(products, null, 2).slice(0, 2)}`);
+
   useEffect(() => {
-    const bestProduct = products.filter((item) => item.bestseller);
-    setBestSeller(bestProduct.slice(0, 5));
-  }, []);
+    if (Array.isArray(products)) {
+      // Kiểm tra xem products có phải là mảng không
+      const bestProduct = products.filter((item) => item.bestseller);
+      setBestSeller(bestProduct.slice(0, 5));
+    } else {
+      console.error("products is not an array");
+    }
+  }, [products]);
+
   return (
     <div className="my-10">
       <div className="text-center text-3xl py-8">

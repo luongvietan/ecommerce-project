@@ -1,7 +1,7 @@
 import { createContext, useEffect, useState } from "react";
-import { products } from "../../../admin/src/assets/assets";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+import api from "../api";
 export const ShopContext = createContext();
 
 const ShopContextProvider = (props) => {
@@ -12,6 +12,15 @@ const ShopContextProvider = (props) => {
   const [cartItems, setCartItems] = useState({});
   const navigate = useNavigate();
 
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      const response = await api.get("/products"); // Gọi API để lấy danh sách sản phẩm
+      setProducts(response.data); // Sửa đổi để thiết lập products là mảng
+    };
+    fetchProducts();
+  }, []); // Thêm refresh vào dependency array
   const addToCart = async (itemId, size) => {
     if (!size) {
       toast.error("Please Select Product Size");

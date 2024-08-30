@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import api from "../api";
 
-const ProductList = ({ refresh }) => {
+const ProductList = ({}) => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
@@ -10,7 +10,7 @@ const ProductList = ({ refresh }) => {
       setProducts(response.data);
     };
     fetchProducts();
-  }, [refresh]); // Thêm refresh vào dependency array
+  }, []); // Chỉ gọi một lần khi component được mount
 
   return (
     <div>
@@ -18,7 +18,7 @@ const ProductList = ({ refresh }) => {
       <ul className="border rounded shadow-md">
         {products.map((product) => (
           <li key={product._id} className="p-4 border-b last:border-b-0">
-            {product.name} - {product.price} VNĐ
+            {product.name} - ${product.price}
           </li>
         ))}
       </ul>
