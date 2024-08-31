@@ -6,27 +6,22 @@ import RelatedProducts from "../components/RelatedProducts";
 
 const Product = () => {
   const { productId } = useParams();
-  // const { id } = useParams();
-  // const productId = id;
   const { products, currency, addToCart } = useContext(ShopContext);
-  const [productData, setProductData] = useState(false);
+  const [productData, setProductData] = useState(null);
   const [image, setImage] = useState("");
   const [size, setSize] = useState("");
 
   const fetchProductData = async () => {
     products.map((item) => {
-      if (item._id === productId) {
+      if (item.pid === productId) {
         setProductData(item);
         setImage(item.image[0]);
-        return null;
       }
     });
   };
   useEffect(() => {
     fetchProductData();
   }, [productId, products]);
-
-  console.log(`productData: `, productData);
 
   return productData ? (
     <div className="border-t-2 pt-10 transition-opacity ease-in duration-500 opacity-100">
@@ -38,14 +33,18 @@ const Product = () => {
             {productData.image.map((item, index) => (
               <img
                 onClick={() => setImage(item)}
-                src={item}
+                src={`http://localhost:5000/assets/${item}.png`}
                 key={index}
                 className="w-[24%] sm:w-full sm:mb-3 flex-shrink-0 cursor-pointer"
               ></img>
             ))}
           </div>
           <div className="w-full sm:w-[80%]">
-            <img className="w-full h-auto" src={image} alt="" />
+            <img
+              className="w-full h-auto"
+              src={`http://localhost:5000/assets/${image}.png`}
+              alt="image"
+            />
           </div>
         </div>
         {/* Products Information */}

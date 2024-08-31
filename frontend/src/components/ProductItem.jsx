@@ -3,12 +3,6 @@ import { ShopContext } from "../context/ShopContext";
 import { Link } from "react-router-dom";
 
 const ProductItem = ({ pid, image, name, price }) => {
-  // Kiểm tra nếu products không hợp lệ
-  // if (!products || !products.pid) {
-  //   console.log("products error:", products);
-  //   return null; // Trả về null nếu products không hợp lệ
-  // }
-
   const { currency } = useContext(ShopContext);
   return (
     <Link className="text-gray-700 cursor-pointer" to={`/product/${pid}`}>
