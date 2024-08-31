@@ -8,13 +8,15 @@ const LatestCollection = () => {
   const [latestProduct, setLatestProduct] = useState([]); // Đảm bảo khởi tạo là mảng
 
   useEffect(() => {
-    if (Array.isArray(products)) {
-      // Kiểm tra xem products có phải là mảng không
+    if (Array.isArray(products) && products.length > 0) {
+      // Kiểm tra xem products có phải là mảng và không rỗng
       setLatestProduct(products.slice(0, 10));
     } else {
-      console.error("products is not an array");
+      setLatestProduct([]); // Đảm bảo latestProduct luôn là mảng
     }
   }, [products]);
+  console.clear();
+  console.log("latestProduct:", typeof latestProduct); // Thay đổi để in ra rõ ràng hơn
   return (
     <div className="my-10">
       <div className="text-center py-8 text-3xl">
@@ -26,21 +28,20 @@ const LatestCollection = () => {
       </div>
       {/* Rendering products */}
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 gap-y-6">
-        {Array.isArray(latestProduct) &&
-          latestProduct.map(
-            (
-              item,
-              index // Kiểm tra kiểu dữ liệu
-            ) => (
-              <ProductItem
-                key={index}
-                pid={item.pid}
-                image={item.image}
-                name={item.name}
-                price={item.price}
-              />
-            )
-          )}
+        {latestProduct.map(
+          (
+            item,
+            index // Kiểm tra kiểu dữ liệu
+          ) => (
+            <ProductItem
+              key={index}
+              pid={item.pid}
+              image={item.image}
+              name={item.name}
+              price={item.price}
+            />
+          )
+        )}
       </div>
     </div>
   );

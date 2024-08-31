@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { ShopContext } from "../context/ShopContext";
 import { assets } from "../../../backend/statics/assets/assets";
 import Title from "../components/Title";
-import ProductItem from "../components/ProductItem";
+import ProductItem from "../components/ProductItem"; // Thêm dòng này nếu chưa có
 
 const Collection = () => {
   const { products, search, showSearch } = useContext(ShopContext);
@@ -212,9 +212,6 @@ const Collection = () => {
         </div>
         {/* Map products */}
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 gap-y-6">
-          {console.log(
-            `filterProducts : ${JSON.stringify(filterProducts[0], null, 2)}`
-          )}{" "}
           {filterProducts.map((item, index) => (
             <ProductItem
               key={index}
