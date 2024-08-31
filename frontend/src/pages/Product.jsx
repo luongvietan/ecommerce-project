@@ -56,7 +56,7 @@ const Product = () => {
             <img className="w-3 5" src={assets.star_icon} alt="" />
             <img className="w-3 5" src={assets.star_icon} alt="" />
             <img className="w-3 5" src={assets.star_dull_icon} alt="" />
-            <p className="pl-2">(153)</p>
+            <p className="pl-2">({Math.floor(Math.random() * 200)})</p>
           </div>
           <p className="mt-5 text-3xl font-medium">
             {currency}
