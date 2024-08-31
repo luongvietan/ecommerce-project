@@ -1,5 +1,5 @@
 import React from "react";
-import { assets } from "../../../admin/src/assets/assets";
+import { assets } from "../../../backend/statics/assets/assets";
 
 const Policy = () => {
   return (

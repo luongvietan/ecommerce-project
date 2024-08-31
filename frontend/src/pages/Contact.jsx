@@ -1,6 +1,6 @@
 import React from "react";
 import Title from "../components/Title";
-import { assets } from "../../../admin/src/assets/assets";
+import { assets } from "../../../backend/statics/assets/assets";
 import NewsletterBox from "../components/NewsletterBox";
 
 const Contact = () => {
