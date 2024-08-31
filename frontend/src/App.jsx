@@ -7,7 +7,7 @@ import Collection from "./pages/Collection";
 import Contact from "./pages/Contact";
 import Login from "./pages/Login";
 import Orders from "./pages/Orders";
-import PlaceOrder from "./pages/PlaceOrder"; // Chỉnh sửa tên import cho đúng casing
+import PlaceOrder from "./pages/PlaceOrder";
 import Product from "./pages/Product";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
