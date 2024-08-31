@@ -15,8 +15,6 @@ const LatestCollection = () => {
       setLatestProduct([]); // Đảm bảo latestProduct luôn là mảng
     }
   }, [products]);
-  console.clear();
-  console.log("latestProduct:", typeof latestProduct); // Thay đổi để in ra rõ ràng hơn
   return (
     <div className="my-10">
       <div className="text-center py-8 text-3xl">
