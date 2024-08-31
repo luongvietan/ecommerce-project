@@ -9,7 +9,17 @@ const AddProduct = ({ onProductAdded }) => {
   const [category, setCategory] = useState("");
   const [subCategory, setSubCategory] = useState("");
   const [image, setImage] = useState(Array(4).fill(null));
+  const [sizes, setSizes] = useState([]); // Thay đổi state để lưu nhiều size
 
+  const handleSizeChange = (e) => {
+    const value = e.target.value;
+    setSizes(
+      (prevSizes) =>
+        prevSizes.includes(value)
+          ? prevSizes.filter((size) => size !== value) // Xóa size nếu đã chọn
+          : [...prevSizes, value] // Thêm size nếu chưa chọn
+    );
+  };
   const handleSubmit = async (e) => {
     e.preventDefault();
     const newProduct = {
@@ -22,6 +32,7 @@ const AddProduct = ({ onProductAdded }) => {
       image: image
         .filter((img) => img !== null)
         .map((img) => img.name.split(".")[0]),
+      sizes: sizes, // Thêm sizes vào newProduct
     };
     console.log(newProduct); // Kiểm tra dữ liệu gửi đi
     try {
@@ -34,6 +45,7 @@ const AddProduct = ({ onProductAdded }) => {
       setCategory("");
       setSubCategory("");
       setImage(Array(4).fill(null));
+      setSizes([]);
       onProductAdded();
     } catch (error) {
       console.error("Error submitting form:", error); // Xử lý lỗi
@@ -189,6 +201,28 @@ const AddProduct = ({ onProductAdded }) => {
                   </label>
                 </>
               )}
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div className="mb-5">
+        <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+          Select Sizes
+        </label>
+        <div className="flex space-x-4">
+          {["S", "M", "L", "XL"].map((sizeOption) => (
+            <div key={sizeOption}>
+              <input
+                type="checkbox" // Sử dụng checkbox để chọn nhiều size
+                id={sizeOption}
+                value={sizeOption}
+                checked={sizes.includes(sizeOption)}
+                onChange={handleSizeChange} // Cập nhật sizes
+              />
+              <label htmlFor={sizeOption} className="ml-2">
+                {sizeOption}
+              </label>
             </div>
           ))}
         </div>

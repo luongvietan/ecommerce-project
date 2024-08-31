@@ -28,6 +28,7 @@ const ProductList = ({ refresh }) => {
             <th className="px-6 py-3">Category</th>
             <th className="px-6 py-3">SubCategory</th>
             <th className="px-6 py-3">Image</th>
+            <th className="px-6 py-3">Sizes</th>
             <th className="px-6 py-3"></th>
           </tr>
         </thead>
@@ -46,8 +47,17 @@ const ProductList = ({ refresh }) => {
                 <img
                   src={`http://localhost:5000/assets/${product.image[0]}.png`}
                   alt={product.name}
-                  style={{ width: "70px", height: "auto" }}
+                  className="w-16 h-auto" // Thay đổi style để responsive
                 />
+              </td>
+              <td className="px-6 py-4">
+                {/* Kiểm tra nếu sizes tồn tại và là một mảng trước khi gọi join */}
+                <p>
+                  Sizes:{" "}
+                  {Array.isArray(product.sizes) && product.sizes.length > 0
+                    ? product.sizes.join(", ")
+                    : "No sizes available"}
+                </p>
               </td>
               <td className="px-6 py-4">
                 <button

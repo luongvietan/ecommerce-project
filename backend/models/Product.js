@@ -5,9 +5,10 @@ const productSchema = new mongoose.Schema({
   price: { type: Number, required: true },
   description: { type: String, required: true },
   image: { type: Array, required: true },
+  sizes: { type: Array, required: true },
   pid: { type: String, required: true },
   category: { type: String, required: true },
-  subCategory: { type: String, required: true }, // Đảm bảo trường này có giá trị
+  subCategory: { type: String, required: true },
   _id: { type: mongoose.Schema.Types.ObjectId, auto: true },
 });
 
