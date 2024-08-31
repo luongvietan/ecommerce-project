@@ -1,43 +1,51 @@
 import React, { useState } from "react";
-import { useContext } from "react";
-import { Link, useNavigate } from "react-router-dom"; // Thêm useNavigate
-import { ShopContext } from "../context/ShopContext";
+import { Link } from "react-router-dom";
 
-const Login = () => {
-  const { setEmail, setPassword, onSubmitHandler } = useContext(ShopContext);
+const Register = () => {
+  const [username, setUsename] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const onSubmitHandler = async (event) => {
+    event.preventDefault();
+  };
+
   return (
     <form
       onSubmit={onSubmitHandler}
       className="flex flex-col items-center w-[90%] sm:max-w-96 m-auto mt-14 gap-4 text-gray-500"
     >
       <div className="inline-flex items-center gap-2 mb-2 mt-10">
-        <p className="prata-regular text-3xl">Login</p>
+        <p className="prata-regular text-3xl">Sign up</p>
         <hr className="border-none h-[1.5px] w-8 bg-gray-800" />
       </div>
+      <input
+        type="text"
+        className="w-full px-3 py-2 border border-gray-800"
+        placeholder="Name"
+        required
+      />
       <input
         type="email"
         className="w-full px-3 py-2 border border-gray-800"
         placeholder="Email"
-        onChange={(e) => setEmail(e.target.value)}
         required
       />
       <input
         type="password"
         className="w-full px-3 py-2 border border-gray-800"
         placeholder="Password"
-        onChange={(e) => setPassword(e.target.value)}
         required
       />
       <div className="w-full flex justify-between text-sm mt-[-8px]">
         <p className="cursor-pointer">Forgot your password ?</p>
-        <Link to="/register">
-          <p className="cursor-pointer">Create new account</p>
+        <Link to="/login">
+          <p className="cursor-pointer">Login here</p>
         </Link>
       </div>
       <button className="bg-black text-white font-light px-8 py-2 mt-4">
-        Sign In
+        Sign Up
       </button>
     </form>
   );
 };
-export default Login;
+export default Register;

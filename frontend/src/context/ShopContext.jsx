@@ -10,9 +10,12 @@ const ShopContextProvider = (props) => {
   const [search, setSearch] = useState("");
   const [showSearch, setShowSearch] = useState(false);
   const [cartItems, setCartItems] = useState({});
-  const navigate = useNavigate();
-
+  const [userData, setUserData] = useState({ email: "", password: "" });
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [products, setProducts] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -21,6 +24,15 @@ const ShopContextProvider = (props) => {
     };
     fetchProducts();
   }, []); // Thêm refresh vào dependency array
+
+  const onSubmitHandler = async (event) => {
+    event.preventDefault();
+    setUserData({ email, password });
+    // Chờ cho userData được cập nhật
+    // setLoginStatus(true);
+    navigate("/");
+  };
+
   const addToCart = async (itemId, size) => {
     if (!size) {
       toast.error("Please Select Product Size");
@@ -92,6 +104,10 @@ const ShopContextProvider = (props) => {
     getCartCount,
     updateQuantity,
     getCartAmount,
+    setName,
+    setEmail,
+    setPassword,
+    onSubmitHandler,
     navigate,
   };
 
