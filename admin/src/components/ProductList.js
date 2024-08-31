@@ -19,17 +19,18 @@ const ProductList = ({ refresh }) => {
 
   return (
     <div className="relative overflow-x-auto">
-      <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+      <table className="min-w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 w-full">
+        {" "}
         <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
           <tr>
-            <th className="px-6 py-3">PID</th>
-            <th className="px-6 py-3">Name</th>
-            <th className="px-6 py-3">Price</th>
-            <th className="px-6 py-3">Category</th>
-            <th className="px-6 py-3">SubCategory</th>
-            <th className="px-6 py-3">Image</th>
-            <th className="px-6 py-3">Sizes</th>
-            <th className="px-6 py-3"></th>
+            <th className="px-1 py-3">PID</th>
+            <th className="px-1 py-3">Name</th>
+            <th className="px-1 py-3">Price</th>
+            <th className="px-1 py-3">Category</th>
+            <th className="px-1 py-3">SubCategory</th>
+            <th className="px-1 py-3">Image</th>
+            <th className="px-1 py-3">Sizes</th>
+            <th className="px-1 py-3"></th>
           </tr>
         </thead>
         <tbody>
@@ -38,22 +39,21 @@ const ProductList = ({ refresh }) => {
               className="bg-white border-b dark:bg-gray-800 dark:border-gray-700"
               key={product.pid}
             >
-              <td className="px-6 py-4">{product.pid}</td>
-              <td className="px-6 py-4">{product.name}</td>
-              <td className="px-6 py-4">${product.price}</td>
-              <td className="px-6 py-4">{product.category}</td>
-              <td className="px-6 py-4">{product.subCategory}</td>
-              <td className="px-6 py-4">
+              <td className="px-1 py-4">{product.pid}</td>
+              <td className="px-1 py-4">{product.name}</td>
+              <td className="px-1 py-4">${product.price}</td>
+              <td className="px-1 py-4">{product.category}</td>
+              <td className="px-1 py-4">{product.subCategory}</td>
+              <td className="px-1 py-4">
                 <img
                   src={`http://localhost:5000/assets/${product.image[0]}.png`}
                   alt={product.name}
                   className="w-16 h-auto" // Thay đổi style để responsive
                 />
               </td>
-              <td className="px-6 py-4">
+              <td className="px-1 py-4">
                 {/* Kiểm tra nếu sizes tồn tại và là một mảng trước khi gọi join */}
                 <p>
-                  Sizes:{" "}
                   {Array.isArray(product.sizes) && product.sizes.length > 0
                     ? product.sizes.join(", ")
                     : "No sizes available"}
