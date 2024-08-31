@@ -15,45 +15,44 @@ const ProductList = ({ refresh }) => {
       setProducts(response.data);
     };
     fetchProducts();
-  }, [refresh]); // Thêm refresh vào dependency array
-  // console.log(`products : ${JSON.stringify(products[0].image[0], null, 2)}`);
-  // console.log(`products : ${JSON.stringify(products, null, 2)}`);
+  }, [refresh]);
+
   return (
-    <div>
-      <h2 className="text-xl font-bold mb-2">Product List</h2>
-      <table className="min-w-full border-collapse border border-gray-200">
-        <thead>
+    <div className="relative overflow-x-auto">
+      <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+        <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
           <tr>
-            <th className="border border-gray-300 p-2">PID</th>
-            <th className="border border-gray-300 p-2">Name</th>
-            <th className="border border-gray-300 p-2">Price</th>
-            <th className="border border-gray-300 p-2">Category</th>
-            <th className="border border-gray-300 p-2">SubCategory</th>
-            <th className="border border-gray-300 p-2">Image</th>
-            <th className="border border-gray-300 p-2">Action</th>
+            <th className="px-6 py-3">PID</th>
+            <th className="px-6 py-3">Name</th>
+            <th className="px-6 py-3">Price</th>
+            <th className="px-6 py-3">Category</th>
+            <th className="px-6 py-3">SubCategory</th>
+            <th className="px-6 py-3">Image</th>
+            <th className="px-6 py-3"></th>
           </tr>
         </thead>
         <tbody>
           {products.map((product) => (
-            <tr key={product.pid}>
-              <td className="border border-gray-300 p-2">{product.pid}</td>
-              <td className="border border-gray-300 p-2">{product.name}</td>
-              <td className="border border-gray-300 p-2">${product.price}</td>
-              <td className="border border-gray-300 p-2">{product.category}</td>
-              <td className="border border-gray-300 p-2">
-                {product.subCategory}
-              </td>
-              <td className="border border-gray-300 p-2">
+            <tr
+              className="bg-white border-b dark:bg-gray-800 dark:border-gray-700"
+              key={product.pid}
+            >
+              <td className="px-6 py-4">{product.pid}</td>
+              <td className="px-6 py-4">{product.name}</td>
+              <td className="px-6 py-4">${product.price}</td>
+              <td className="px-6 py-4">{product.category}</td>
+              <td className="px-6 py-4">{product.subCategory}</td>
+              <td className="px-6 py-4">
                 <img
                   src={`http://localhost:5000/assets/${product.image[0]}.png`}
                   alt={product.name}
                   style={{ width: "70px", height: "auto" }}
                 />
               </td>
-              <td className="border border-gray-300 p-2">
+              <td className="px-6 py-4">
                 <button
+                  className="text-red-700 hover:text-white border border-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-red-900"
                   onClick={() => removeProduct(product.pid)}
-                  className="text-red-500"
                 >
                   Remove
                 </button>
