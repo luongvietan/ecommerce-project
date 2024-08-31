@@ -61,9 +61,7 @@ const AddProduct = ({ onProductAdded }) => {
     }
   };
   return (
-    <form onSubmit={handleSubmit} className="max-w-md mx-auto">
-      <h2 className="text-xl font-bold mb-2">Add New Product</h2>
-
+    <form onSubmit={handleSubmit} className="max-w-md mx-auto ">
       <div className="relative z-0 w-full mb-5 group">
         <input
           type="text"
