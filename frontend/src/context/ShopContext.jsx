@@ -56,14 +56,18 @@ const ShopContextProvider = (props) => {
 
   const updateQuantity = async (itemId, size, quantity) => {
     let cartData = structuredClone(cartItems);
-    cartData[itemId][size] = quantity;
+    // Kiểm tra xem itemId có tồn tại trong cartItems không
+    if (cartData[itemId] && cartData[itemId][size] !== undefined) {
+      cartData[itemId][size] = quantity; // Cập nhật số lượng
+    } else {
+      console.error(cartData[itemId]);
+    }
     setCartItems(cartData);
   };
-
   const getCartAmount = () => {
     let totalAmount = 0;
     for (const items in cartItems) {
-      let itemInfo = products.find((product) => product._id === items);
+      let itemInfo = products.find((product) => product.pid === items);
       for (const item in cartItems[items]) {
         try {
           if (cartItems[items][item] > 0) {

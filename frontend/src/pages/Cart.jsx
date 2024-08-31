@@ -4,19 +4,19 @@ import Title from "../components/Title";
 import { assets } from "../../../backend/statics/assets/assets";
 import CartTotal from "../components/CartTotal";
 
+console.clear();
 const Cart = () => {
   const { products, currency, cartItems, updateQuantity, navigate } =
     useContext(ShopContext);
 
   const [cartData, setCartData] = useState([]);
-
   useEffect(() => {
     const tempData = [];
     for (const items in cartItems) {
       for (const item in cartItems[items]) {
         if (cartItems[items][item] > 0) {
           tempData.push({
-            _id: items,
+            pid: items,
             size: item,
             quantity: cartItems[items][item],
           });
@@ -25,7 +25,6 @@ const Cart = () => {
     }
     setCartData(tempData);
   }, [cartItems]);
-
   return (
     <div className="border-t pt-14">
       <div className="text-2xl mb-3">
@@ -34,8 +33,11 @@ const Cart = () => {
       <div>
         {cartData.map((item, index) => {
           const productData = products.find(
-            (product) => product._id === item._id
+            (product) => product.pid === item.pid
           );
+          if (!productData) {
+            console.log(`productData error`);
+          }
           return (
             <div
               key={index}
@@ -44,8 +46,8 @@ const Cart = () => {
               <div className="flex items-start gap-6">
                 <img
                   className="w-16 sm:w-20"
-                  src={productData.image[0]}
-                  alt=""
+                  src={`http://localhost:5000/assets/${productData.image[0]}.png`}
+                  alt={""}
                 />
                 <div>
                   <p className="text-xs sm:text-lg font-medium">
@@ -67,7 +69,7 @@ const Cart = () => {
                   event.target.value === "" || event.target.value === "0"
                     ? null
                     : updateQuantity(
-                        item._id,
+                        item.pid,
                         item.size,
                         Number(event.target.value)
                       )
@@ -78,7 +80,7 @@ const Cart = () => {
                 className="border max-w-10 sm:max-w-20 px-1 sm:px-2 py-1"
               />
               <img
-                onClick={() => updateQuantity(item._id, item.size, 0)}
+                onClick={() => updateQuantity(item.pid, item.size, 0)}
                 className="w-4 mr-4 sm:w-5 cursor-pointer"
                 src={assets.bin_icon}
                 alt="bin_icon"
