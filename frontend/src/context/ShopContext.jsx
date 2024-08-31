@@ -10,10 +10,18 @@ const ShopContextProvider = (props) => {
   const [search, setSearch] = useState("");
   const [showSearch, setShowSearch] = useState(false);
   const [cartItems, setCartItems] = useState({});
+  const [newUserData, setNewUserData] = useState({
+    newName: "",
+    newEmail: "",
+    newPassword: "",
+  });
   const [userData, setUserData] = useState({ email: "", password: "" });
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [newName, setNewName] = useState("");
+  const [newEmail, setNewEmail] = useState("");
+  const [newPassword, setNewPassword] = useState("");
   const [products, setProducts] = useState([]);
   const navigate = useNavigate();
 
@@ -30,7 +38,16 @@ const ShopContextProvider = (props) => {
     setUserData({ email, password });
     // Chờ cho userData được cập nhật
     // setLoginStatus(true);
+    console.log("login: ", userData);
     navigate("/");
+  };
+  const onRegisterSubmitHandler = async (event) => {
+    event.preventDefault();
+    setNewUserData({ name, email, password });
+    // Chờ cho userData được cập nhật
+    // setLoginStatus(true);
+    console.log("signup: ", newUserData);
+    navigate("/login");
   };
 
   const addToCart = async (itemId, size) => {
@@ -107,7 +124,11 @@ const ShopContextProvider = (props) => {
     setName,
     setEmail,
     setPassword,
+    setNewName,
+    setNewEmail,
+    setNewPassword,
     onSubmitHandler,
+    onRegisterSubmitHandler,
     navigate,
   };
 

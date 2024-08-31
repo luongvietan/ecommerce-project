@@ -1,17 +1,15 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { ShopContext } from "../context/ShopContext";
 
 const Register = () => {
-  const [username, setUsename] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const onSubmitHandler = async (event) => {
-    event.preventDefault();
-  };
+  const { setNewName, setNewEmail, setNewPassword, onRegisterSubmitHandler } =
+    useContext(ShopContext);
 
   return (
     <form
-      onSubmit={onSubmitHandler}
+      onSubmit={onRegisterSubmitHandler}
       className="flex flex-col items-center w-[90%] sm:max-w-96 m-auto mt-14 gap-4 text-gray-500"
     >
       <div className="inline-flex items-center gap-2 mb-2 mt-10">
@@ -22,18 +20,21 @@ const Register = () => {
         type="text"
         className="w-full px-3 py-2 border border-gray-800"
         placeholder="Name"
+        onChange={(e) => setNewName(e.target.value)}
         required
       />
       <input
         type="email"
         className="w-full px-3 py-2 border border-gray-800"
         placeholder="Email"
+        onChange={(e) => setNewEmail(e.target.value)}
         required
       />
       <input
         type="password"
         className="w-full px-3 py-2 border border-gray-800"
         placeholder="Password"
+        onChange={(e) => setNewPassword(e.target.value)}
         required
       />
       <div className="w-full flex justify-between text-sm mt-[-8px]">
