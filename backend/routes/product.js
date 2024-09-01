@@ -5,7 +5,7 @@ const Product = require("../models/Product");
 // Lấy danh sách sản phẩm
 router.get("/", async (req, res) => {
   const products = await Product.find();
-  res.json(products);
+  res.json(products); // Gửi phản hồi ở đây
 });
 
 // Xóa sản phẩm theo PID
@@ -34,7 +34,5 @@ router.post("/", async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 });
-
-console.log("product");
 
 module.exports = router;

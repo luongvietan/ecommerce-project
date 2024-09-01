@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import ProductList from "./components/ProductList";
+import ProductList from "./pages/ProductList.jsx";
 import AddProduct from "./components/AddProduct.jsx";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar.jsx";
+import User from "./pages/User.jsx";
 
 const App = () => {
   const [refresh, setRefresh] = useState(false);
@@ -20,6 +21,7 @@ const App = () => {
           element={<AddProduct onProductAdded={handleProductAdded} />}
         />
         <Route path="/list" element={<ProductList refresh={refresh} />} />
+        <Route path="/user" element={<User />} />
       </Routes>
     </div>
   );

@@ -15,14 +15,19 @@ const ShopContextProvider = (props) => {
     newEmail: "",
     newPassword: "",
   });
-  const [userData, setUserData] = useState({ email: "", password: "" });
-  const [name, setName] = useState("");
+  const [userData, setUserData] = useState({
+    id: "",
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+  });
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [newName, setNewName] = useState("");
-  const [newEmail, setNewEmail] = useState("");
-  const [newPassword, setNewPassword] = useState("");
   const [products, setProducts] = useState([]);
+  const [users, setUsers] = useState([]);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -31,7 +36,15 @@ const ShopContextProvider = (props) => {
       setProducts(response.data); // Sửa đổi để thiết lập products là mảng
     };
     fetchProducts();
-  }, []); // Thêm refresh vào dependency array
+  }, []);
+
+  useEffect(() => {
+    const fetchUsers = async () => {
+      const response = await api.get("/users"); // Gọi API để lấy danh sách sản phẩm
+      setUsers(response.data); // Sửa đổi để thiết lập products là mảng
+    };
+    fetchUsers();
+  }, []);
 
   const onSubmitHandler = async (event) => {
     event.preventDefault();
@@ -110,6 +123,7 @@ const ShopContextProvider = (props) => {
 
   const value = {
     products,
+    users,
     currency,
     delivery_fee,
     search,
@@ -121,12 +135,10 @@ const ShopContextProvider = (props) => {
     getCartCount,
     updateQuantity,
     getCartAmount,
-    setName,
+    setFirstName,
+    setLastName,
     setEmail,
     setPassword,
-    setNewName,
-    setNewEmail,
-    setNewPassword,
     onSubmitHandler,
     onRegisterSubmitHandler,
     navigate,
