@@ -16,7 +16,6 @@ router.get("/", async (req, res) => {
 // Xóa user theo ID
 router.delete("/:id", async (req, res) => {
   const { id } = req.params;
-  console.log("UID received:", id);
   try {
     await User.findOneAndDelete({ id: id });
     const users = await User.find(); // Lấy lại danh sách user
