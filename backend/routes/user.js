@@ -26,18 +26,18 @@ router.get("/", async (req, res) => {
 //   }
 // });
 
-// // Thêm user mới
-// router.post("/", async (req, res) => {
-//   try {
-//     const newUser = new User(req.body);
-//     await newUser.save();
-//     const users = await User.find(); // Lấy lại danh sách sản phẩm
-//     res.status(201).json(users); // Trả về danh sách sản phẩm mới
-//   } catch (error) {
-//     console.log(error);
-//     res.status(500).json({ error: error.message });
-//   }
-// });
+// Thêm user mới
+router.post("/", async (req, res) => {
+  try {
+    const newUser = new User(req.body);
+    await newUser.save();
+    const users = await User.find(); // Lấy lại danh sách sản phẩm
+    res.status(201).json(users); // Trả về danh sách sản phẩm mới
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ error: error.message });
+  }
+});
 
 console.log("user");
 

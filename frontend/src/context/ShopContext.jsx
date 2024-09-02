@@ -11,14 +11,14 @@ const ShopContextProvider = (props) => {
   const [showSearch, setShowSearch] = useState(false);
   const [cartItems, setCartItems] = useState({});
   const [userData, setUserData] = useState({
-    // id: "",
-    firstName: "",
-    lastName: "",
+    id: "",
+    first_name: "",
+    last_name: "",
     email: "",
     password: "",
   });
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
+  const [first_name, setFirstName] = useState("");
+  const [last_name, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [products, setProducts] = useState([]);
@@ -43,48 +43,46 @@ const ShopContextProvider = (props) => {
 
   const onSubmitHandler = async (event) => {
     event.preventDefault();
-    setUserData({ email, password });
-    // Chờ cho userData được cập nhật
-    // setLoginStatus(true);
-    console.log("login: ", userData);
     navigate("/");
   };
 
   const onRegisterSubmitHandler = async (event) => {
     event.preventDefault();
-    const emailExists = await checkEmailExists(email);
-    if (emailExists) {
+    const isEmailExist = await checkEmailExists(email);
+    if (isEmailExist) {
       toast.error("Email đã tồn tại. Vui lòng sử dụng email khác.");
-      return;
-    }
-    setUserData({ firstName, lastName, email, password });
-  };
-
-  // checkEmailExists function
-  const checkEmailExists = async (email) => {
-    const result = users.find((user) => user.email === email);
-    console.log(`result : `, result);
-    if (!result) {
-      toast.success("Đăng ký thành công");
-      return false;
     } else {
-      console.log(result.email);
-      return true;
+      const newUserData = { first_name, last_name, email, password };
+      setUserData(newUserData);
+      console.log(`users data: `, newUserData);
+      const newUserId =
+        users.length > 0 ? parseInt(users[users.length - 1].id) + 1 : 1;
+      const newUser = { id: newUserId, ...newUserData };
+      console.log(newUser);
+      try {
+        await api.post("/users", newUser);
+        setUsers((prevUsers) => [...prevUsers, newUser]);
+      } catch (error) {
+        console.error("Error creating new user:", error);
+        toast.error("Đã xảy ra lỗi khi tạo người dùng mới.");
+      }
     }
   };
 
   // Thêm useEffect để theo dõi sự thay đổi của userData
-  useEffect(() => {
-    if (
-      userData.firstName &&
-      userData.lastName &&
-      userData.email &&
-      userData.password
-    ) {
-      console.log(`users : `, userData);
+  useEffect(() => {}, [userData]);
+
+  // checkEmailExists function
+  const checkEmailExists = async (email) => {
+    const result = await users.find((user) => user.email === email);
+    if (!result) {
+      toast.success("Đăng ký thành công");
       navigate("/login");
+      return false;
+    } else {
+      return true;
     }
-  }, [userData]);
+  };
 
   const addToCart = async (itemId, size) => {
     if (!size) {
