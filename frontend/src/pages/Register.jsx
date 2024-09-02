@@ -4,8 +4,13 @@ import { Link, useNavigate } from "react-router-dom";
 import { ShopContext } from "../context/ShopContext";
 
 const Register = () => {
-  const { setNewName, setNewEmail, setNewPassword, onRegisterSubmitHandler } =
-    useContext(ShopContext);
+  const {
+    setLastName,
+    setFirstName,
+    setEmail,
+    setPassword,
+    onRegisterSubmitHandler,
+  } = useContext(ShopContext);
 
   return (
     <form
@@ -19,22 +24,29 @@ const Register = () => {
       <input
         type="text"
         className="w-full px-3 py-2 border border-gray-800"
-        placeholder="Name"
-        onChange={(e) => setNewName(e.target.value)}
+        placeholder="Your First Name"
+        onChange={(e) => setFirstName(e.target.value)}
+        required
+      />
+      <input
+        type="text"
+        className="w-full px-3 py-2 border border-gray-800"
+        placeholder="Your Last Name"
+        onChange={(e) => setLastName(e.target.value)}
         required
       />
       <input
         type="email"
         className="w-full px-3 py-2 border border-gray-800"
         placeholder="Email"
-        onChange={(e) => setNewEmail(e.target.value)}
+        onChange={(e) => setEmail(e.target.value)}
         required
       />
       <input
         type="password"
         className="w-full px-3 py-2 border border-gray-800"
         placeholder="Password"
-        onChange={(e) => setNewPassword(e.target.value)}
+        onChange={(e) => setPassword(e.target.value)}
         required
       />
       <div className="w-full flex justify-between text-sm mt-[-8px]">

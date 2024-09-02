@@ -10,13 +10,8 @@ const ShopContextProvider = (props) => {
   const [search, setSearch] = useState("");
   const [showSearch, setShowSearch] = useState(false);
   const [cartItems, setCartItems] = useState({});
-  const [newUserData, setNewUserData] = useState({
-    newName: "",
-    newEmail: "",
-    newPassword: "",
-  });
   const [userData, setUserData] = useState({
-    id: "",
+    // id: "",
     firstName: "",
     lastName: "",
     email: "",
@@ -27,7 +22,7 @@ const ShopContextProvider = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [products, setProducts] = useState([]);
-  const [users, setUsers] = useState([]);
+  const [users, setUsers] = useState({});
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -54,14 +49,42 @@ const ShopContextProvider = (props) => {
     console.log("login: ", userData);
     navigate("/");
   };
+
   const onRegisterSubmitHandler = async (event) => {
     event.preventDefault();
-    setNewUserData({ name, email, password });
-    // Chờ cho userData được cập nhật
-    // setLoginStatus(true);
-    console.log("signup: ", newUserData);
-    navigate("/login");
+    const emailExists = await checkEmailExists(email);
+    if (emailExists) {
+      toast.error("Email đã tồn tại. Vui lòng sử dụng email khác.");
+      return;
+    }
+    setUserData({ firstName, lastName, email, password });
   };
+
+  // checkEmailExists function
+  const checkEmailExists = async (email) => {
+    const result = users.find((user) => user.email === email);
+    console.log(`result : `, result);
+    if (!result) {
+      toast.success("Đăng ký thành công");
+      return false;
+    } else {
+      console.log(result.email);
+      return true;
+    }
+  };
+
+  // Thêm useEffect để theo dõi sự thay đổi của userData
+  useEffect(() => {
+    if (
+      userData.firstName &&
+      userData.lastName &&
+      userData.email &&
+      userData.password
+    ) {
+      console.log(`users : `, userData);
+      navigate("/login");
+    }
+  }, [userData]);
 
   const addToCart = async (itemId, size) => {
     if (!size) {
@@ -139,6 +162,7 @@ const ShopContextProvider = (props) => {
     setLastName,
     setEmail,
     setPassword,
+    setUserData,
     onSubmitHandler,
     onRegisterSubmitHandler,
     navigate,
