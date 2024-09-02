@@ -23,6 +23,7 @@ const ShopContextProvider = (props) => {
   const [password, setPassword] = useState("");
   const [products, setProducts] = useState([]);
   const [users, setUsers] = useState({});
+  const [loginStatus, setLoginStatus] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -43,12 +44,13 @@ const ShopContextProvider = (props) => {
 
   const onSubmitHandler = async (event) => {
     event.preventDefault();
-    const isEmailExist = await checkEmailExists(email);
-    if (isEmailExist) {
+    const isTruePwd = await isTruePassword(password, email);
+    if (isTruePwd) {
       toast.success("Login Success");
+      setLoginStatus(true);
       navigate("/");
     } else {
-      toast.error("Account not found !");
+      toast.error("Wrong email or password");
     }
   };
 
@@ -87,6 +89,14 @@ const ShopContextProvider = (props) => {
       return false;
     } else {
       return true;
+    }
+  };
+  const isTruePassword = async (password, email) => {
+    const result = await users.find((user) => user.password === password);
+    if (result && result.email === email) {
+      return true;
+    } else {
+      return false;
     }
   };
 
