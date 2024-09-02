@@ -43,14 +43,20 @@ const ShopContextProvider = (props) => {
 
   const onSubmitHandler = async (event) => {
     event.preventDefault();
-    navigate("/");
+    const isEmailExist = await checkEmailExists(email);
+    if (isEmailExist) {
+      toast.success("Login Success");
+      navigate("/");
+    } else {
+      toast.error("Account not found !");
+    }
   };
 
   const onRegisterSubmitHandler = async (event) => {
     event.preventDefault();
     const isEmailExist = await checkEmailExists(email);
     if (isEmailExist) {
-      toast.error("Email đã tồn tại. Vui lòng sử dụng email khác.");
+      toast.error("Email already exist");
     } else {
       const newUserData = { first_name, last_name, email, password };
       setUserData(newUserData);
@@ -62,9 +68,11 @@ const ShopContextProvider = (props) => {
       try {
         await api.post("/users", newUser);
         setUsers((prevUsers) => [...prevUsers, newUser]);
+        toast.success("Register successfully");
+        navigate("/login");
       } catch (error) {
         console.error("Error creating new user:", error);
-        toast.error("Đã xảy ra lỗi khi tạo người dùng mới.");
+        toast.error("Error.");
       }
     }
   };
@@ -76,8 +84,6 @@ const ShopContextProvider = (props) => {
   const checkEmailExists = async (email) => {
     const result = await users.find((user) => user.email === email);
     if (!result) {
-      toast.success("Đăng ký thành công");
-      navigate("/login");
       return false;
     } else {
       return true;
