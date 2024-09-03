@@ -62,7 +62,6 @@ const ShopContextProvider = (props) => {
     } else {
       const newUserData = { first_name, last_name, email, password };
       setUserData(newUserData);
-      console.log(`users data: `, newUserData);
       const newUserId =
         users.length > 0 ? parseInt(users[users.length - 1].id) + 1 : 1;
       const newUser = { id: newUserId, ...newUserData };
@@ -73,7 +72,6 @@ const ShopContextProvider = (props) => {
         toast.success("Register successfully");
         navigate("/login");
       } catch (error) {
-        console.error("Error creating new user:", error);
         toast.error("Error.");
       }
     }
@@ -135,7 +133,6 @@ const ShopContextProvider = (props) => {
 
   const updateQuantity = async (itemId, size, quantity) => {
     let cartData = structuredClone(cartItems);
-    // Kiểm tra xem itemId có tồn tại trong cartItems không
     if (cartData[itemId] && cartData[itemId][size] !== undefined) {
       cartData[itemId][size] = quantity; // Cập nhật số lượng
     } else {

@@ -1,5 +1,10 @@
 import React, { useState } from "react";
 import api from "../api";
+import Box from "@mui/material/Box";
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+import Select from "@mui/material/Select";
 
 const AddProduct = ({ onProductAdded }) => {
   const [pid, setPid] = useState("");
@@ -132,38 +137,47 @@ const AddProduct = ({ onProductAdded }) => {
           Product Price
         </label>
       </div>
-
-      <div className="relative z-0 w-full mb-5 group">
-        <select
-          id="category"
-          className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-          value={category}
-          onChange={(e) => setCategory(e.target.value)}
-          required
-        >
-          <option value="">Select Category</option>
-          <option value="Premier League">Premier League</option>
-          <option value="La Liga">La Liga</option>
-          <option value="Bundesliga">Bundesliga</option>
-          <option value="Serie A">Serie A</option>
-          <option value="Ligue 1">Ligue 1</option>
-          <option value="National">National</option>
-        </select>
+      <div className="relative z-0 w-full mb-5 group ">
+        <Box sx={{ minWidth: 120 }}>
+          <FormControl fullWidth>
+            <InputLabel className="text-sm text-gray-500 dark:text-gray-400">
+              Category
+            </InputLabel>
+            <Select
+              className="text-sm text-gray-900"
+              id="category"
+              value={category}
+              label="category"
+              onChange={(e) => setCategory(e.target.value)}
+              required
+            >
+              <MenuItem value="Premier League">Premier League</MenuItem>
+              <MenuItem value="La Liga">La Liga</MenuItem>
+              <MenuItem value="Bundesliga">Bundesliga</MenuItem>
+              <MenuItem value="Serie A">Serie A</MenuItem>
+              <MenuItem value="Ligue 1">Ligue 1</MenuItem>
+              <MenuItem value="National">National</MenuItem>
+            </Select>
+          </FormControl>
+        </Box>
       </div>
-
       <div className="relative z-0 w-full mb-5 group">
-        <select
-          id="subcategory"
-          className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-          value={subCategory}
-          onChange={(e) => setSubCategory(e.target.value)}
-          required
-        >
-          <option value="">Select SubCategory</option>
-          <option value="Men">Men</option>
-          <option value="Women">Women</option>
-          <option value="Kids">Kids</option>
-        </select>
+        <Box sx={{ minWidth: 120 }}>
+          <FormControl fullWidth>
+            <InputLabel id="demo-simple-select-label">SubCategory</InputLabel>
+            <Select
+              id="subcategory"
+              value={subCategory}
+              label="subcategory"
+              onChange={(e) => setSubCategory(e.target.value)}
+              required
+            >
+              <MenuItem value="Men">Men</MenuItem>
+              <MenuItem value="Women">Women</MenuItem>
+              <MenuItem value="Kids">Kids</MenuItem>
+            </Select>
+          </FormControl>
+        </Box>
       </div>
 
       <div className="relative z-0 w-full mb-5 group">
