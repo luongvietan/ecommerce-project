@@ -54,6 +54,11 @@ const ShopContextProvider = (props) => {
     }
   };
 
+  // Thêm useEffect để theo dõi sự thay đổi của loginStatus
+  useEffect(() => {
+    console.log(loginStatus);
+  }, [loginStatus]);
+
   const onRegisterSubmitHandler = async (event) => {
     event.preventDefault();
     const isEmailExist = await checkEmailExists(email);
@@ -165,6 +170,7 @@ const ShopContextProvider = (props) => {
     showSearch,
     setShowSearch,
     cartItems,
+    loginStatus,
     addToCart,
     getCartCount,
     updateQuantity,
@@ -174,6 +180,7 @@ const ShopContextProvider = (props) => {
     setEmail,
     setPassword,
     setUserData,
+    setLoginStatus,
     onSubmitHandler,
     onRegisterSubmitHandler,
     navigate,

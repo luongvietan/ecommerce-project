@@ -4,7 +4,9 @@ import { Link, useNavigate } from "react-router-dom";
 import { ShopContext } from "../context/ShopContext";
 
 const Login = () => {
-  const { setEmail, setPassword, onSubmitHandler } = useContext(ShopContext);
+  const { setEmail, setPassword, loginStatus, onSubmitHandler } =
+    useContext(ShopContext);
+  console.log(loginStatus);
   return (
     <form
       onSubmit={onSubmitHandler}
