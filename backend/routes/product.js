@@ -11,9 +11,8 @@ router.get("/", async (req, res) => {
 // Xóa sản phẩm theo PID
 router.delete("/:pid", async (req, res) => {
   const { pid } = req.params; // Lấy PID từ tham số
-  console.log("PID received:", pid); // Thêm log để kiểm tra PID
   try {
-    await Product.findOneAndDelete({ pid: pid }); // Sử dụng trường pid thay vì _id
+    await Product.findOneAndDelete({ pid: pid });
     const products = await Product.find(); // Lấy lại danh sách sản phẩm
     res.json(products); // Trả về danh sách sản phẩm mới
   } catch (error) {
