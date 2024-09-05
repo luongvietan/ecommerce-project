@@ -34,10 +34,10 @@ const ProductList = ({ refresh }) => {
             </tr>
           </thead>
           <tbody>
-            {products.map((product) => (
+            {products.map((product, index) => (
               <tr
                 className="bg-white border-b dark:bg-gray-800 dark:border-gray-700"
-                key={product.pid}
+                key={`${product.pid}-${index}`} // Sử dụng pid kết hợp với index để tạo khóa duy nhất
               >
                 <td className="px-4 py-4">{product.pid}</td>
                 <td className="px-4 py-4">{product.name}</td>

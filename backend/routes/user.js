@@ -17,8 +17,6 @@ router.get("/:id", async (req, res) => {
 router.get("/", async (req, res) => {
   try {
     const users = await User.find();
-
-    console.log(users);
     return res.json(users); // Sử dụng return để ngăn chặn việc gửi phản hồi nhiều lần
   } catch (error) {
     console.log(error);

@@ -57,14 +57,32 @@ const AddProduct = ({ onProductAdded }) => {
     }
   };
 
-  const handleImageUpload = (e, index) => {
+  const handleImageUpload = async (e, index) => {
     const file = e.target.files[0];
     if (file) {
-      const newImages = [...image];
-      newImages[index] = file;
-      setImage(newImages);
+      const formData = new FormData();
+      formData.append("file", file);
+      console.log("file", file);
+      try {
+        const response = await api.post("/upload", formData, {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        });
+        const newImages = [...image];
+        newImages[index] = new File(
+          [file],
+          file.name.replace(/\.[^/.]+$/, ".png"),
+          { type: "image/png" }
+        ); // Chuyển đổi định dạng file sang .png
+        setImage(newImages);
+        console.log(`newImages : `, newImages);
+      } catch (error) {
+        console.error("Error uploading image:", error); // Xử lý lỗi
+      }
     }
   };
+
   return (
     <form onSubmit={handleSubmit} className="max-w-md mx-auto ">
       <div className="relative z-0 w-full mb-5 group">

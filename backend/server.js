@@ -1,6 +1,9 @@
 const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
+const multer = require("multer");
+const path = require("path");
+const sharp = require("sharp"); // Thêm thư viện sharp để xử lý ảnh
 
 const app = express();
 app.use(cors());
@@ -10,6 +13,24 @@ mongoose
   .connect("mongodb://localhost:27017/ecommerce")
   .then(() => console.log("MongoDB connected"))
   .catch((err) => console.error("MongoDB connection error:", err));
+
+const storage = multer.memoryStorage(); // Sử dụng bộ nhớ tạm để lưu trữ file ảnh
+
+const upload = multer({ storage });
+
+app.post("/upload", upload.single("file"), async (req, res) => {
+  const filename = `${path.parse(req.file.originalname).name}.png`; // Đổi tên file thành .png
+  const filePath = `statics/assets/${filename}`;
+
+  try {
+    await sharp(req.file.buffer).png().toFile(filePath); // Chuyển đổi và lưu file ảnh thành .png
+    res.json({ filePath });
+    console.log(filename);
+  } catch (err) {
+    res.status(500).json({ error: "Error processing image" });
+    console.error("Error processing image:", err);
+  }
+});
 
 app.get("/", (req, res) => {
   res.send("Welcome to the e-commerce API");
