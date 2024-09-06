@@ -50,7 +50,9 @@ const Register = () => {
         required
       />
       <div className="w-full flex justify-between text-sm mt-[-8px]">
-        <p className="cursor-pointer">Forgot your password ?</p>
+        <Link to="/recovery">
+          <p className="cursor-pointer">Forgot your password ?</p>
+        </Link>
         <Link to="/login">
           <p className="cursor-pointer">Login here</p>
         </Link>

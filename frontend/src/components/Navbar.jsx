@@ -11,7 +11,7 @@ const Navbar = () => {
 
   const handleLogout = () => {
     setLoginStatus(false);
-    navigate("/"); // Chuyển hướng về trang chủ sau khi đăng xuất
+    navigate("/");
     window.location.reload(); // Refresh lại trang
   };
 
