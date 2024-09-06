@@ -16,9 +16,13 @@ import contact_img from "./contact_img.png";
 import razorpay_logo from "./razorpay_logo.png";
 import stripe_logo from "./stripe_logo.png";
 import cross_icon from "./cross_icon.png";
+import enter_icon from "./enter_icon.png";
+import logout_icon from "./logout_icon.png";
 
 export const assets = {
   logo,
+  logout_icon,
+  enter_icon,
   hero_img,
   cart_icon,
   dropdown_icon,

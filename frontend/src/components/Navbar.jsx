@@ -47,37 +47,49 @@ const Navbar = () => {
             alt="search-icon"
           />
         </Link>
+
         <div className="group relative">
-          <Link to="/login">
-            <img
-              src={assets.profile_icon}
-              className="w-5 cursor-pointer"
-              alt="profile-icon"
-            />
-          </Link>
-          <div className="group-hover:block hidden absolute dropdown-menu right-0 pt-4">
-            <div className="flex flex-col gap-2 w-36 py-3 px-5 bg-slate-100 text-gray-500 rounded">
-              <p className="cursor-pointer hover:text-black">My Profile</p>
-              <p className="cursor-pointer hover:text-black">Orders</p>
-              <p
-                className="cursor-pointer hover:text-black"
-                onClick={loginStatus ? handleLogout : null} // Gọi handleLogout khi đăng xuất
-              >
-                {loginStatus === true ? (
-                  <NavLink to="/">Log out</NavLink>
-                ) : (
-                  <NavLink to="/login">Login</NavLink>
-                )}
-              </p>
+          {loginStatus === false ? (
+            <Link to="/login">
+              <img
+                src={assets.enter_icon}
+                className="w-5 cursor-pointer"
+                alt="enter_icon"
+                onClick={loginStatus ? handleLogout : null}
+              />
+            </Link>
+          ) : (
+            <div className="flex items-center justify-between py-5 font-medium gap-6">
+              <Link to="/cart" className="relative">
+                <img
+                  src={assets.cart_icon}
+                  alt="cart_icon"
+                  className="w-5 min-w-5"
+                />
+                <p className="absolute top-[-8px] right-[-8px] w-5 h-5 flex items-center justify-center bg-black text-white text-xs font-bold rounded-full">
+                  {getCartCount()}
+                </p>
+              </Link>
+              <Link to="/">
+                <img
+                  src={assets.profile_icon}
+                  className="w-5 cursor-pointer "
+                  alt="logout_icon"
+                  onClick={loginStatus ? handleLogout : null}
+                />
+              </Link>
+              <Link to="/">
+                <img
+                  src={assets.logout_icon}
+                  className="w-5 cursor-pointer"
+                  alt="logout_icon"
+                  onClick={loginStatus ? handleLogout : null}
+                />
+              </Link>
             </div>
-          </div>
+          )}
         </div>
-        <Link to="/cart" className="relative">
-          <img src={assets.cart_icon} alt="cart_icon" className="w-5 min-w-5" />
-          <p className="absolute top-[-8px] right-[-8px] w-5 h-5 flex items-center justify-center bg-black text-white text-xs font-bold rounded-full">
-            {getCartCount()}
-          </p>
-        </Link>
+
         <img
           onClick={() => setVisible(true)}
           src={assets.menu_icon}
