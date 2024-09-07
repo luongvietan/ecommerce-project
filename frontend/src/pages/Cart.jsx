@@ -35,9 +35,6 @@ const Cart = () => {
           const productData = products.find(
             (product) => product.pid === item.pid
           );
-          if (!productData) {
-            console.log(`productData error`);
-          }
           return (
             <div
               key={index}

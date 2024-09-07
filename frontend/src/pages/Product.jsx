@@ -6,10 +6,12 @@ import RelatedProducts from "../components/RelatedProducts";
 
 const Product = () => {
   const { productId } = useParams();
-  const { products, currency, addToCart } = useContext(ShopContext);
+  const { products, currency, addToCart, updateQuantity, updateCartIcon } =
+    useContext(ShopContext);
   const [productData, setProductData] = useState(null);
   const [image, setImage] = useState("");
   const [size, setSize] = useState("");
+  const [quantity, setQuantity] = useState(1);
 
   const fetchProductData = async () => {
     products.map((item) => {
@@ -22,6 +24,15 @@ const Product = () => {
   useEffect(() => {
     fetchProductData();
   }, [productId, products]);
+
+  const handleQuantityChange = (event) => {
+    const value =
+      event.target.value === "" || event.target.value === "0"
+        ? 1
+        : Number(event.target.value);
+    setQuantity(value);
+    updateQuantity(productData.pid, size, Number(event.target.value));
+  };
 
   return productData ? (
     <div className="border-t-2 pt-10 transition-opacity ease-in duration-500 opacity-100">
@@ -69,18 +80,37 @@ const Product = () => {
             <p>Select Size</p>
             <div className="flex gap-2">
               {productData.sizes.map((item, index) => (
-                <button
-                  onClick={() => setSize(item)}
-                  className={`border py-2 px-4 bg-gray-100 ${
-                    item === size ? "border-orange-300" : ""
-                  }`}
-                  key={index}
-                >
-                  {item}
-                </button>
+                <div>
+                  <button
+                    onClick={() => setSize(item)}
+                    className={`border py-2 px-4 bg-gray-100 ${
+                      item === size ? "border-orange-300" : ""
+                    }`}
+                    key={index}
+                  >
+                    {item}
+                  </button>
+                </div>
               ))}
             </div>
           </div>
+          <div className="flex flex-col gap-4 my-8">
+            <p>Select Quantity</p>
+            <div className="flex gap-2">
+              {
+                <div>
+                  <input
+                    onChange={handleQuantityChange}
+                    type="number"
+                    min={1}
+                    value={quantity}
+                    className="border max-w-10 sm:max-w-20 px-1 sm:px-2 py-1"
+                  />
+                </div>
+              }
+            </div>
+          </div>
+
           <button
             onClick={() => addToCart(productData.pid, size)}
             className="bg-black text-white px-8 py-3 text-sm active:bg-gray-700"
