@@ -4,18 +4,11 @@ const mongoose = require("mongoose");
 const multer = require("multer");
 const path = require("path");
 const sharp = require("sharp"); // Thêm thư viện sharp để xử lý ảnh
-const loginRoute = require("./api/login");
-const protectedRoute = require("./api/protectedRoute"); // Đảm bảo rằng đường dẫn và tên file chính xác
-const productRoutes = require("./api/productRoutes"); // Thêm dòng này để import productRoutes
-const userRoutes = require("./api/userRoutes"); // Giả sử bạn cũng có userRoutes
+
 const app = express();
-app.use(cors()); // Đảm bảo rằng CORS được cấu hình đúng
+app.use(cors());
 app.use(express.json());
 app.use(express.static("statics"));
-app.use("/api", loginRoute);
-app.use("/api", protectedRoute);
-app.use("/products", productRoutes); // Sử dụng productRoutes
-app.use("/users", userRoutes); // Sử dụng userRoutes
 mongoose
   .connect("mongodb://localhost:27017/ecommerce")
   .then(() => console.log("MongoDB connected"))
@@ -43,7 +36,11 @@ app.get("/", (req, res) => {
   res.send("Welcome to the e-commerce API");
 });
 
-const PORT = process.env.PORT || 5000; // Thay đổi cổng từ 5000 sang 5001
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
+app.listen(5000, () => {
+  console.log("Server is running on port 5000");
 });
+const productRoutes = require("./routes/product");
+const userRoutes = require("./routes/user");
+
+app.use("/products", productRoutes);
+app.use("/users", userRoutes);

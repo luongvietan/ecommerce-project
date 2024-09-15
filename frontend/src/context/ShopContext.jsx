@@ -55,9 +55,7 @@ const ShopContextProvider = (props) => {
   };
 
   // Thêm useEffect để theo dõi sự thay đổi của loginStatus
-  useEffect(() => {
-    console.log(loginStatus);
-  }, [loginStatus]);
+  useEffect(() => {}, [loginStatus]);
 
   const onRegisterSubmitHandler = async (event) => {
     event.preventDefault();
@@ -95,8 +93,9 @@ const ShopContextProvider = (props) => {
     }
   };
   const isTruePassword = async (password, email) => {
-    const result = await users.find((user) => user.password === password);
-    if (result && result.email === email) {
+    const result = await users.find((user) => user.email === email);
+    console.log(result);
+    if (result && result.password === password) {
       return true;
     } else {
       return false;
