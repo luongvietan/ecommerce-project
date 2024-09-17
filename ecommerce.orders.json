@@ -1,6 +1,4 @@
-{
-    "orders": [
-      {
+[{
         "order_id": 1,
         "customer_id": 101,
         "order_date": "2023-10-01",
@@ -659,4 +657,3 @@
         "total": 4400
       }
     ]
-}

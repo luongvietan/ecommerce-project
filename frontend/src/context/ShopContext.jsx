@@ -68,7 +68,6 @@ const ShopContextProvider = (props) => {
       const newUserId =
         users.length > 0 ? parseInt(users[users.length - 1].id) + 1 : 1;
       const newUser = { id: newUserId, ...newUserData };
-      console.log(newUser);
       try {
         await api.post("/users", newUser);
         setUsers((prevUsers) => [...prevUsers, newUser]);
@@ -94,7 +93,6 @@ const ShopContextProvider = (props) => {
   };
   const isTruePassword = async (password, email) => {
     const result = await users.find((user) => user.email === email);
-    console.log(result);
     if (result && result.password === password) {
       return true;
     } else {

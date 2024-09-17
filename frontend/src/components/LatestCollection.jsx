@@ -5,14 +5,14 @@ import ProductItem from "./ProductItem";
 
 const LatestCollection = () => {
   const { products } = useContext(ShopContext);
-  const [latestProduct, setLatestProduct] = useState([]); // Đảm bảo khởi tạo là mảng
+  const [latestProduct, setLatestProduct] = useState([]);
 
   useEffect(() => {
     if (Array.isArray(products) && products.length > 0) {
       // Kiểm tra xem products có phải là mảng và không rỗng
       setLatestProduct(products.slice(0, 10));
     } else {
-      setLatestProduct([]); // Đảm bảo latestProduct luôn là mảng
+      setLatestProduct([]);
     }
   }, [products]);
   return (
