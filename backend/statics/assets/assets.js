@@ -41,6 +41,3 @@ export const assets = {
   stripe_logo,
   cross_icon,
 };
-export const products = [
-  // ... danh sách sản phẩm ...
-];

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import { useContext, useState } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom"; // Thay useHistory bằng useNavigate
 import { assets } from "../../../backend/statics/assets/assets";
 import { ShopContext } from "../context/ShopContext";
